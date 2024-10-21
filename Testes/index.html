@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Leilão de Produto</title>
+    <style>
+        /* Adicione o estilo CSS aqui */
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Leilão de Produto</h1>
+    <p>Produto: Item incrível em leilão!</p>
+    <p>Lance mínimo: R$ 100,00</p>
+    <input type="number" id="bidValue" placeholder="Insira seu lance">
+    <button onclick="submitBid()">Enviar Lance</button>
+    <p id="message"></p>
+
+    <script>
+        const minimumBid = 100;
+        function submitBid() {
+            const bidValue = parseFloat(document.getElementById('bidValue').value);
+            const messageElement = document.getElementById('message');
+
+            if (isNaN(bidValue) || bidValue < minimumBid) {
+                messageElement.textContent = "O valor do lance deve ser no mínimo R$ 100,00.";
+                messageElement.className = "error";
+            } else {
+                messageElement.textContent = `Lance de R$ ${bidValue} aceito com sucesso!`;
+                messageElement.className = "success";
+            }
+        }
+    </script>
+</body>
+</html>
