@@ -1,6 +1,6 @@
 describe('Leilão de Produto', () => {
     it('Deve exibir mensagem de erro para lance menor que o mínimo', () => {
-        cy.visit('caminho-para-o-seu-projeto');
+        cy.visit('/index.html');
         cy.get('#bidValue').type('50');
         cy.contains('Enviar Lance').click();
         cy.get('#message').should('have.class', 'error')
@@ -8,7 +8,7 @@ describe('Leilão de Produto', () => {
     });
 
     it('Deve aceitar lance igual ou maior que o mínimo', () => {
-        cy.visit('caminho-para-o-seu-projeto');
+        cy.visit('/index.html');
         cy.get('#bidValue').type('150');
         cy.contains('Enviar Lance').click();
         cy.get('#message').should('have.class', 'success')
